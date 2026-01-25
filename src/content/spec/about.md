@@ -24,6 +24,12 @@
 
 **🏠我的博客： [https://supermortal.top](https://supermortal.top)**
 
+**🏠备用地址： [my-blog-3nb.pages.dev](my-blog-3nb.pages.dev)**
+
+**⭐部署相关   [vercel官网](https://vercel.com)**
+
+**⭐部署相关   [cloudflare官网](https://dash.cloudflare.com/login)**
+
 <!-- **📝Firefly使用文档： [https://docs-firefly.cuteleaf.cn](https://docs-firefly.cuteleaf.cn/)**
 
 **⭐Firefly开源地址：[https://github.com/CuteLeaf/Firefly](https://github.com/CuteLeaf/Firefly)** 
