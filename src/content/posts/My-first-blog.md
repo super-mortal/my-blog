@@ -1,6 +1,6 @@
 ---
 title: 我的第一篇博客
-published: 2026-01-25
+published: 2026-01-26
 pinned: false
 description: 一个简明的 Markdown 第一篇博客
 tags: [博客]

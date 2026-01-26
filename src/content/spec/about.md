@@ -22,9 +22,11 @@
 
 <!-- **🖥️在线预览： [Firefly - Demo site](https://firefly.cuteleaf.cn/)** -->
 
+## 💻 地址导航
+
 **🏠我的博客： [https://supermortal.top](https://supermortal.top)**
 
-**🏠备用地址： [my-blog-3nb.pages.dev](my-blog-3nb.pages.dev)**
+**🏠备用地址： [https://my-blog-3nb.pages.dev](https://my-blog-3nb.pages.dev)**
 
 **⭐部署相关   [vercel官网](https://vercel.com)**
 
