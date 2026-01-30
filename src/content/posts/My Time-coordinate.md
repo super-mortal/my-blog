@@ -3,7 +3,7 @@ title: 我的时间线
 published: 2026-01-29
 pinned: true
 description: 我的历史事件回顾
-tags: [个人，技术，简历]
+tags: [记录]
 category: 个人博客
 licenseName: "未授权"
 author: mortal
