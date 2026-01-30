@@ -16,7 +16,7 @@
 
 使用 **Astro** 框架构建，采用了 [Firefly](https://github.com/CuteLeaf/Firefly) 模板，Firefly 是基于 [Fuwari](https://github.com/saicaca/fuwari) 的二次开发
 
-**2026-01-25：** 博客迁移重构 使用Astro框架Firefly模板重新构建
+**2026-01-28：** 博客迁移重构 使用Astro框架Firefly模板重新构建
 
 **2025-11-24：** 博客正式成立 使用typecho框架的wayxz主题构建
 
