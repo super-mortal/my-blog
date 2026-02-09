@@ -3,7 +3,7 @@ title: Antigravity反代部署实战笔记
 published: 2026-02-09
 pinned: false
 description: 如何通过Antigravity反代部署，白嫖Claude和Gemini大模型
-tags: [AI][笔记]
+tags: [AI,笔记]
 category: AI
 licenseName: "未授权"
 author: mortal
