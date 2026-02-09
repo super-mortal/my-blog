@@ -3,7 +3,7 @@ title: Antigravity反代部署实战笔记
 published: 2026-02-09
 pinned: false
 description: 如何通过Antigravity反代部署，白嫖Claude和Gemini大模型
-tags: [AI]
+tags: [AI][笔记]
 category: AI
 licenseName: "未授权"
 author: mortal
@@ -41,7 +41,7 @@ Antigravity 是 Google 推出的 AI 驱动的集成开发环境（IDE），提�
 - ✔️ 一个或多个 Google 账户（需要个人账户，企业不行）
 - ✔️ 已登录 [Antigravity IDE](https://antigravity.google/)
 
-> **注意**：Google AI Pro好像可以通过学生认证获得，有一年使用期，Pro版的Antigravity模型是5小时和周双刷新机制，额度更加充足，后面在研究
+> **注意**：Google AI Pro好像可以通过学生认证获得，有一年使用期，Pro版的Antigravity模型是5小时和周双刷新机制，额度更加充足，后面再研究
 
 ## 使用步骤
 
@@ -63,7 +63,7 @@ netstat -ano | findstr ":8045"
 2. 添加成功后，右侧填入Antigravity tools中的API密钥
 3. 添加API访问地址，因为是本地部署所以是填写  http://127.0.0.1:8045
 
-![配置页面](/assets/images/cherry studio.png)
+![配置页面](/assets/images/peizhi.png)
 
 4. 成功后可以根据Antigravity tools反代API 页面所提取到的模型按需加入cherry studio中进行使用
 5. 最后测试模型是否可以正常使用，因为是通过Antigravity进行反代的，所以他的第一次回答会说他是Antigravity模型
