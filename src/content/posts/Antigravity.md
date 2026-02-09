@@ -78,7 +78,7 @@ netstat -ano | findstr ":8045"
 
 **解决方案：**
 
-* 代理工具需要开启全局tun模式
+* 代理工具需要开启全局tun模式！
 * 确保已在浏览器中登录过 Antigravity IDE
 
 ### 3. Antigravity tools服务无法启动
