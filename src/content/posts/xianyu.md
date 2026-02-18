@@ -9,7 +9,7 @@ licenseName: "未授权"
 author: mortal
 # sourceLink: "https://github.com/emn178/markdown"
 draft: false
-slug: xianyugongju
+slug: xianyu
 ---
 
 # 闲鱼监测助手 - 工具介绍

@@ -18,4 +18,17 @@ slug: Hello-World
 
 **2025-11-24：** 博客正式成立 使用typecho框架的wayxz主题构建
 
+# 这是博客更新提交到github指令
+
+```bash
+# 添加所有修改
+git add .
+
+# 提交更改（写清楚修改内容）
+git commit -m "Add new post: 文章标题"
+
+# 推送到 GitHub
+git push
+```
+
 ![mortal's logo](/assets/images/Logo.jpg)
