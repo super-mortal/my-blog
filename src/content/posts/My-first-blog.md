@@ -6,7 +6,8 @@ description: 我的第一篇博客
 tags: [博客]
 category: 个人博客
 licenseName: "已授权"
-licenseUrl: “https://creativecommons.org/licenses/by-sa/4.0”
+licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0"
+
 author: mortal
 # sourceLink: "https://github.com/emn178/markdown"
 draft: false

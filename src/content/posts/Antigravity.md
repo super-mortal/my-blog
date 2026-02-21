@@ -6,7 +6,7 @@ description: 如何通过Antigravity反代部署，白嫖Claude和Gemini大模�
 tags: [AI,笔记]
 category: AI
 licenseName: "已授权"
-licenseUrl: “https://creativecommons.org/licenses/by-sa/4.0”
+licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0"
 author: mortal
 # sourceLink: "https://github.com/emn178/markdown"
 draft: false

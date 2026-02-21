@@ -6,7 +6,7 @@ description: 本文详细的介绍了工具的功能以及对应的技术
 tags: [Python]
 category: Python
 licenseName: "已授权"
-licenseUrl: “https://creativecommons.org/licenses/by-sa/4.0”
+licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0"
 author: mortal
 # sourceLink: "https://github.com/emn178/markdown"
 draft: false

@@ -6,7 +6,7 @@ description: 使用宝塔面板可视化部署青龙面板和网站站点笔记
 tags: [青龙面板,笔记,宝塔面板]
 category: 宝塔面板
 licenseName: "已授权"
-licenseUrl: “https://creativecommons.org/licenses/by-sa/4.0”
+licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0"
 author: mortal
 # sourceLink: "https://github.com/emn178/markdown"
 draft: false
