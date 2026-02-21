@@ -5,7 +5,8 @@ pinned: true
 description: 我的历史事件回顾
 tags: [记录]
 category: 个人博客
-licenseName: "未授权"
+licenseName: "已授权"
+licenseUrl: “https://creativecommons.org/licenses/by-sa/4.0”
 author: mortal
 # sourceLink: "https://github.com/emn178/markdown"
 draft: false
@@ -13,6 +14,8 @@ slug: history
 ---
 
 # 历史回顾
+
+**2026-02-21：** 文章采用CC协议，需署名，可修改，可商用，相同方式共享
 
 **2026-01-30：** 使用Python编写的闲鱼监测助手正式完成测试并发布
 

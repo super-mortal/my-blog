@@ -5,7 +5,8 @@ pinned: false
 description: 使用宝塔面板可视化部署青龙面板和网站站点笔记
 tags: [青龙面板,笔记,宝塔面板]
 category: 宝塔面板
-licenseName: "未授权"
+licenseName: "已授权"
+licenseUrl: “https://creativecommons.org/licenses/by-sa/4.0”
 author: mortal
 # sourceLink: "https://github.com/emn178/markdown"
 draft: false
@@ -214,11 +215,6 @@ ql repo https://github.com/yuannian1112/jd_scripts.git "jd_|jx_|gua_|jddj_|jdCoo
 
 4. 恢复备份：面板崩了，删除原有实例目录，把压缩包上传到root目录，解压后，重启容器，数据就回来了。
 
-## 🙏 致谢
-感谢以下开源项目的支持：
-- [青龙面板](https://github.com/whyour/qinglong)
-- [345脚本开源库](https://2.345yun.cn)
-
 # 网站部署使用笔记
 
 ## 单站点部署
@@ -274,3 +270,12 @@ ql repo https://github.com/yuannian1112/jd_scripts.git "jd_|jx_|gua_|jddj_|jdCoo
 无法访问：检查安全组、宝塔防火墙、系统防火墙是否都放行端口，Web 服务是否正常启动。
 
 配置错误：核对配置文件的`listen`指令，确保语法正确，重启 Web 服务。
+
+## 📞联系作者
+- QQ：2169702639
+- QQ: 1938489204
+
+## 🙏 致谢
+感谢以下开源项目的支持：
+- [青龙面板](https://github.com/whyour/qinglong)
+- [345脚本开源库](https://2.345yun.cn)

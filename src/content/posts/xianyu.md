@@ -2,10 +2,11 @@
 title: 闲鱼自动化工具介绍
 published: 2026-01-30
 pinned: false
-description: 本文介绍了工具的功能以及对应的技术
+description: 本文详细的介绍了工具的功能以及对应的技术
 tags: [Python]
-category: Python工具
-licenseName: "未授权"
+category: Python
+licenseName: "已授权"
+licenseUrl: “https://creativecommons.org/licenses/by-sa/4.0”
 author: mortal
 # sourceLink: "https://github.com/emn178/markdown"
 draft: false
@@ -165,10 +166,14 @@ slug: xianyu
 - 不得用于商业爬虫或恶意采集
 - 本工具只用于个人学习不出售卡密
 
----
+## 📞联系作者
+- QQ：2169702639
+- QQ: 1938489204
 
 ## 🙏 致谢
 
 感谢以下开源项目的支持：
 - [PySide6](https://www.qt.io/qt-for-python) - Qt for Python
 - [Playwright](https://playwright.dev/) - 浏览器自动化
+
+---

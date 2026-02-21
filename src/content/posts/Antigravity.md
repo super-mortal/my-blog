@@ -5,7 +5,8 @@ pinned: false
 description: 如何通过Antigravity反代部署，白嫖Claude和Gemini大模型
 tags: [AI,笔记]
 category: AI
-licenseName: "未授权"
+licenseName: "已授权"
+licenseUrl: “https://creativecommons.org/licenses/by-sa/4.0”
 author: mortal
 # sourceLink: "https://github.com/emn178/markdown"
 draft: false
@@ -150,6 +151,10 @@ netstat -ano | findstr ":8045"
 - 🚀 副项目和原型开发
 - 📚 学习 AI 辅助编程
 - 💡 小团队协作开发
+
+## 📞联系作者
+- QQ：2169702639
+- QQ: 1938489204
 
 ## 🙏 致谢
 
