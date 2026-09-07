@@ -1,0 +1,43 @@
+---
+import skillsData from 'public/skills.json'
+
+import {Button} from 'astro-pure/user'
+import PageLayout from '@/layouts/CommonPage.astro'
+import SkillSection from '@/components/skills/SkillSection.astro'
+
+export const prerender = true
+
+interface SkillCategory {
+  id: string
+  title: string
+  skills: {
+    name: string
+    description: string
+    image?: string
+    links: { type: string; href: string }[]
+  }[]
+}
+
+const categories: SkillCategory[] = skillsData.categories
+const headings = categories.map((c) => ({ depth: 2 as const, slug: c.id, text: c.title }))
+
+---
+
+<PageLayout title='Skills' {headings} comment={false}>
+  <p>我发布在 GitHub 上的技能/工具，按分类展示，点击卡片或图标跳转查看</p>
+
+  {
+    categories.length > 0 ? (
+      categories.map((cat) => (
+        <>
+          <h2 id={cat.id}>{cat.title}</h2>
+          <SkillSection skills={cat.skills} class='mb-2' />
+        </>
+      ))
+    ) : (
+      <p class='text-muted-foreground'>Skills 内容整理中，敬请期待。</p>
+    )
+  }
+
+  <Button title='Back' href='/' variant='back' class='mt-8' />
+</PageLayout>

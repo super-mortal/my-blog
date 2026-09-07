@@ -1,0 +1,81 @@
+---
+import type { MarkdownHeading } from 'astro'
+import { type CollectionEntry } from 'astro:content'
+
+// Plugin styles
+import 'katex/dist/katex.min.css'
+
+import { ArticleBottom, Copyright, RelatedPosts, TOC } from 'astro-pure/components/pages'
+import {getPostSlug, getRelatedPosts} from 'astro-pure/server'
+import config from 'virtual:config'
+import ArticleLightbox from '@/components/ArticleLightbox.astro'
+import BlogPostingJsonLd from '@/components/BlogPostingJsonLd.astro'
+import LocalHero from '@/components/LocalHero.astro'
+import PageLayout from '@/layouts/ContentLayout.astro'
+
+interface Props {
+  post: CollectionEntry<'blog'>
+  posts: CollectionEntry<'blog'>[]
+  headings: MarkdownHeading[]
+  remarkPluginFrontmatter: Record<string, unknown>
+}
+
+const {
+  post,
+  posts,
+  headings,
+  remarkPluginFrontmatter
+} = Astro.props
+
+const { id, data } = post
+const { description, heroImage, publishDate, title, updatedDate, draft: isDraft } = data
+
+const socialImage = heroImage
+  ? typeof heroImage.src === 'string'
+    ? heroImage.src
+    : heroImage.src.src
+  : config.socialCard
+const articleDate = updatedDate?.toISOString() ?? publishDate.toISOString()
+const primaryColor = data.heroImage?.color ?? 'hsl(var(--primary) / var(--un-text-opacity))'
+
+// Related: 3 posts in bottom-right column (height-matched with copyright card), shown when not a draft
+const relatedPosts = isDraft ? [] : getRelatedPosts(post, posts, 3)
+---
+
+<PageLayout
+  meta={{ articleDate, description, ogImage: socialImage, title }}
+  highlightColor={primaryColor}
+  back='/blog'
+>
+  <BlogPostingJsonLd
+    slot='head'
+    title={title}
+    description={description}
+    slug={getPostSlug(post)}
+    publishDate={publishDate}
+    updatedDate={updatedDate}
+    image={socialImage}
+    author={config.author}
+    siteName={config.title}
+  />
+  {!!headings.length && <TOC {headings} slot='sidebar' />}
+
+  <LocalHero {data} {remarkPluginFrontmatter} slot='header' />
+
+  <slot />
+
+  <Fragment slot='bottom'>
+    {/* Copyright */}
+    <Copyright {data} class='h-full' />
+  </Fragment>
+
+  {/* Article navigation: full-width row below the copyright / related grid */}
+  <ArticleBottom slot='bottom-nav' collections={posts} {id} />
+
+  <Fragment slot='bottom-sidebar'>
+    {/* Related posts: independent component at bottom-right, next to copyright */}
+    {!isDraft && relatedPosts.length > 0 && <RelatedPosts current={post} related={relatedPosts} />}
+  </Fragment>
+</PageLayout>
+
+{config.integ.mediumZoom.enable && <ArticleLightbox />}

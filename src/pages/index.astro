@@ -1,0 +1,264 @@
+---
+import {Image} from 'astro:assets'
+
+import {PostPreview} from 'astro-pure/components/pages'
+import {getBlogCollection, getUniqueCategoriesWithCount, sortMDByDate} from 'astro-pure/server'
+import {Button, Card, Icon, Label} from 'astro-pure/user'
+import PageLayout from '@/layouts/BaseLayout.astro'
+import WebSiteJsonLd from '@/components/WebSiteJsonLd.astro'
+import ProjectSection from '@/components/projects/ProjectSection.astro'
+import Section from '@/components/home/Section.astro'
+import SkillLayout from '@/components/home/SkillLayout.astro'
+import SkillSection from '@/components/skills/SkillSection.astro'
+import config, {homepage} from '@/site-config'
+import projectsAll from '../../public/projects.json'
+import skillsAll from '../../public/skills.json'
+
+const languages = ['Html', 'JavaScript', 'CSS', 'Java']
+const frontend = ['TypeScript', 'Vite', 'Vue']
+const backend = ['Node.js', 'Express', 'PostgreSQL', 'Redis']
+
+const MAX_POSTS = 10
+const allPosts = await getBlogCollection()
+const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
+const categoriesWithCount = getUniqueCategoriesWithCount(allPosts)
+const allSkills = skillsAll.categories.flatMap(
+  (cat: {
+    skills: { name: string; description: string; image?: string; category?: string; links: { type: string; href: string }[] }[]
+  }) => cat.skills
+)
+const sections = config.sections ?? {}
+
+const imagePath = config.logo.src
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/*.{jpeg,jpg,png,gif,avif,webp}'
+)
+if (!images[imagePath])
+  throw new Error(
+    `"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif,avif,webp}"`
+  )
+---
+
+<PageLayout
+  meta={{
+    title: 'super-mortal 技术博客 | 凡人程序员的 AI、全栈、DevOps 与开源踩坑'
+  }}
+  highlightColor='#659EB9'
+>
+  <WebSiteJsonLd
+    slot='head'
+    name={config.title}
+    description={config.description ?? ''}
+    author={config.author}
+    lang={config.locale.lang ?? 'zh-CN'}
+  />
+  <main class='flex w-full flex-col items-center'>
+    <section class='animate mb-10 flex flex-col items-center gap-y-7' id='content-header'>
+      <Image
+        src={images[imagePath]()}
+        alt={config.logo.alt || 'Profile'}
+        class='h-28 w-auto rounded-full border p-1'
+        width={160}
+        height={160}
+        loading='eager'
+        fetchpriority='high'
+      />
+
+      <div class='flex flex-col items-center gap-y-4'>
+        <h1 class='text-3xl font-medium'>{config.author}</h1>
+        <div
+          class='flex justify-center gap-x-7 gap-y-3 max-sm:flex-nowrap max-sm:overflow-x-auto max-sm:gap-x-5'
+        >
+          <Label title='Chine'>
+            <Icon name='location' class='size-5' slot='icon' />
+          </Label>
+          <Label title='Github' as='a' href='https://github.com/super-mortal' target='_blank'>
+            <Icon name='github' class='size-5' slot='icon' />
+          </Label>
+          <Label
+            title='Bilibili'
+            as='a'
+            href='https://space.bilibili.com/2090094430'
+            target='_blank'
+          >
+            <Icon name='bilibili' class='size-5' slot='icon' />
+          </Label>
+          <Label title='RSS' as='a' href='/rss.xml' target='_blank'>
+            <Icon name='rss' class='size-5' slot='icon' />
+          </Label>
+        </div>
+      </div>
+    </section>
+
+    <div id='content' class='animate flex flex-col gap-y-10 md:w-4/5 lg:w-5/6'>
+      {sections.about !== false && (
+      <Section title='About'>
+        <p class='text-muted-foreground'>Full-Stack Developer / AI Agent Practitioner</p>
+        <p class='text-muted-foreground'>
+          Hello, I'm Mortal from Zhanjiang, Guangdong, currently studying in Guangzhou. I'm a
+          practice-driven full-stack developer focusing on AI applications, Node.js / Vue
+          full-stack development, VPS infrastructure, and cybersecurity, with end-to-end experience
+          from requirement analysis to implementation and deployment, while keeping a strong eye on
+          system stability and observability.<br />
+          I'm currently exploring hot areas like AI Agents, the MCP tool ecosystem, LLM-assisted
+          coding, and knowledge-base applications. I like turning ideas into working projects
+          quickly, then distilling them into open-source repos, tutorials, and methodologies.<br
+          />Beyond coding, I enjoy exploring how AI can truly fit into daily workflows: building
+          personal knowledge-base assistants, automation pipelines, and reliable agents for real
+          tasks. I'll keep pushing forward at the intersection of AI and infrastructure, staying
+          curious, building, and sharing.
+        </p>
+        <Button title='More about me' class='w-fit self-end' href='/about' variant='ahead' />
+      </Section>
+      )}
+
+
+
+
+      {sections.projects !== false && (
+      <Section title='Projects'>
+        <ProjectSection projects={projectsAll} maxItems={homepage.projectsMax} />
+        {projectsAll.length > homepage.projectsMax ? (
+          <button
+            id='projects-more-btn'
+            class='group inline-flex items-center gap-x-1 rounded-lg bg-muted border px-2 py-1 text-sm text-muted-foreground transition-all hover:bg-card w-fit self-end'
+          >查看更多项目</button
+          >
+        ) : (
+          <Button title='More projects' class='w-fit self-end' href='/projects' variant='ahead' />
+        )}
+      </Section>
+      )}
+
+      {sections.categories !== false && (
+      <Section title='Categories'>
+        <div class='flex flex-wrap gap-3'>
+          {categoriesWithCount.map(([category, val]) => (
+            <a
+              href={'/categories/' + encodeURIComponent(category)}
+              data-astro-prefetch
+              class='group inline-flex items-center gap-x-2 rounded-xl border bg-muted px-3 py-1.5 text-sm transition-colors hover:border-primary/40 hover:bg-card'
+            >
+              <Icon name='package' class='size-4 text-muted-foreground group-hover:text-primary' />
+              <span class='font-medium'>{category}</span>
+              <span class='text-xs text-muted-foreground'>{val}</span>
+            </a>
+          ))}
+        </div>
+      </Section>
+      )}
+
+      {sections.posts !== false && allPostsByDate.length > 0 && (
+          <Section title='Posts'>
+            <ul class='flex flex-col gap-y-1.5 sm:gap-y-2'>
+              {allPostsByDate.map((p) => (
+                <li class='flex flex-col gap-x-2 sm:flex-row'>
+                  <PostPreview post={p} />
+                </li>
+              ))}
+            </ul>
+            <Button title='More posts' class='w-fit self-end' href='/blog' variant='ahead' />
+          </Section>
+        )
+      }
+
+      {sections.skills !== false && allSkills.length > 0 && (
+      <Section title='Skills'>
+        <SkillSection skills={allSkills} maxItems={homepage.skillsMax} />
+        {allSkills.length > homepage.skillsMax ? (
+          <button
+            id='skills-more-btn'
+            class='group inline-flex items-center gap-x-1 rounded-lg bg-muted border px-2 py-1 text-sm text-muted-foreground transition-all hover:bg-card w-fit self-end'
+          >查看更多技能</button
+          >
+        ) : (
+          <Button title='More skills' class='w-fit self-end' href='/skills' variant='ahead' />
+        )}
+      </Section>
+      )}
+
+
+      {
+        /* <Section title='Experience'>
+      <Card
+        heading='Lorem Ipsum'
+        subheading='Sit amet consectetur'
+        date='Dec 2022 - Nov 2023'
+        imagePath='/src/assets/about-astro.png'
+        altText='Lorem, ipsum dolor sit'
+        imageClass='h-12 w-auto md:-start-16'
+      >
+        <ul class='ms-4 list-disc text-muted-foreground'>
+          <li>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis recusandae, ut
+            molestiae laboriosam pariatur!
+
+            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, pariatur!</li>
+          </li>
+        </ul>
+      </Card>
+      <Card
+        heading='Lorem Ipsum'
+        subheading='Sit amet consectetur'
+        date='Dec 2022 - Nov 2023'
+        imagePath='/src/assets/about-astro.png'
+        altText='Lorem, ipsum dolor sit'
+        imageClass='h-12 w-auto md:-start-16'
+      />
+    </Section> */
+      }
+      {sections.education !== false && (
+      <Section title='Education'>
+        <Card
+          as='a'
+          heading='广州华南商贸职业学院'
+          subheading='Software Technology.'
+          date='September 2025 - Present'
+          href='https://www.scbt.edu.cn'
+        >
+          {
+            /* <ul class='ms-4 list-disc text-muted-foreground'>
+          <li>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis recusandae, ut
+            molestiae laboriosam pariatur!
+          </li>
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, pariatur!</li>
+        </ul> */
+          }
+        </Card>
+      </Section>
+      )}
+
+      {sections.techStack !== false && (
+      <Section title='Tech Stack'>
+        <SkillLayout title='Languages' skills={languages} />
+        <SkillLayout title='Frontend' skills={frontend} />
+        <SkillLayout title='Backend' skills={backend} />
+      </Section>
+      )}
+    </div>
+  </main>
+
+  <script>
+    function initMoreToggle(
+      buttonId: string,
+      itemSelector: string,
+      moreText: string,
+      collapseText: string
+    ) {
+      const button = document.getElementById(buttonId)
+      if (!button) return
+      button.addEventListener('click', () => {
+        const expanded = button.dataset.expanded === 'true'
+        document.querySelectorAll(itemSelector).forEach((item) => {
+          item.classList.toggle('hidden', !expanded)
+        })
+        button.dataset.expanded = String(!expanded)
+        button.textContent = expanded ? moreText : collapseText
+      })
+    }
+
+    initMoreToggle('projects-more-btn', '.project-item-more', '查看更多项目', '收起')
+    initMoreToggle('skills-more-btn', '.skill-item-more', '查看更多技能', '收起')
+  </script>
+</PageLayout>

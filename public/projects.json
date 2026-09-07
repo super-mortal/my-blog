@@ -1,0 +1,34 @@
+[
+  {
+    "name": "DeepSeek Harness Guide",
+    "category": "文档站",
+    "description": "DeepSeek Harness (dsh) 实战蓝皮书：E-INK 风格 VitePress 文档站，6 种语言",
+    "image": "deepseek-harness-guide.png",
+    "links": [
+      {
+        "type": "site",
+        "href": "https://dsh.supermortal.top/"
+      },
+      {
+        "type": "github",
+        "href": "https://github.com/super-mortal/DeepSeekHarnessGuide"
+      },
+      {
+        "type": "doc",
+        "href": "/blog/deepseek-harness-guide"
+      }
+    ]
+  },
+  {
+    "name": "Bot Deploy",
+    "category": "脚本",
+    "description": "Astrbot 和 Napcat 一键部署脚本，国内服务器友好，支持任意一个单独部署和全量部署",
+    "image": "bot-deploy.png",
+    "links": [
+      {
+        "type": "github",
+        "href": "https://github.com/super-mortal/bot_deploy"
+      }
+    ]
+  }
+]

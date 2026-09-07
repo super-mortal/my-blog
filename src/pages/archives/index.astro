@@ -1,0 +1,77 @@
+---
+import {type CollectionEntry} from 'astro:content'
+
+import {PostPreview} from 'astro-pure/components/pages'
+import {getBlogCollection, groupCollectionsByYear, sortMDByDate} from 'astro-pure/server'
+import config from 'virtual:config'
+import {Button} from 'astro-pure/user'
+import PageLayout from '@/layouts/BaseLayout.astro'
+
+export const prerender = true
+
+const allPosts = await getBlogCollection()
+const allPostsByDate = sortMDByDate(allPosts)
+const allPostsByYear = groupCollectionsByYear(allPostsByDate)
+
+// 按月分组: posts 已按时间倒序，保持首次出现的月份顺序即为"新月份在前"
+function groupPostsByMonth(posts: CollectionEntry<'blog'>[]) {
+  const map = new Map<number, CollectionEntry<'blog'>[]>()
+  for (const p of posts) {
+    const d = new Date(p.data.updatedDate ?? p.data.publishDate)
+    const m = d.getMonth()
+    if (!map.has(m)) map.set(m, [])
+    map.get(m)?.push(p)
+  }
+  return [...map.entries()]
+}
+
+const meta = {
+  description: 'A list of all the years of creating my posts',
+  title: 'Archives'
+}
+---
+
+<PageLayout {meta}>
+  <Button title='Back' href='/blog' variant='back' />
+
+  <main class='mt-6 lg:mt-10'>
+    <div id='content-header' class='animate'>
+      <h1 class='mb-6 text-3xl font-medium'>Archives</h1>
+    </div>
+
+    {allPosts.length === 0 && <p>No posts yet.</p>}
+
+    <section id='content' class='animate' aria-label='Blog post list'>
+      {
+        allPostsByYear.map(([year, posts]) => (
+          <div class='relative mt-20'>
+            <h2
+              class='absolute -start-6 -top-16 z-0 text-9xl font-bold text-transparent opacity-12 dark:opacity-25'
+              style='-webkit-text-stroke-width:2px;-webkit-text-stroke-color:hsl(var(--foreground)/var(--un-text-opacity))'
+            >
+              <samp>{year}</samp>
+            </h2>
+            <p class='px-5 text-muted-foreground'>
+              {posts.length} post{posts.length > 1 && 's'}
+            </p>
+            {groupPostsByMonth(posts).map(([month, monthPosts]) => (
+              <div class='mt-10'>
+                <h3 class='flex items-baseline gap-2 px-5 text-lg font-medium'>
+                  {new Intl.DateTimeFormat(config.locale.dateLocale, { month: 'long' }).format(new Date(year, month, 1))}
+                  <span class='text-xs font-normal text-muted-foreground'>
+                    {monthPosts.length} post{monthPosts.length > 1 && 's'}
+                  </span>
+                </h3>
+                <ul class='mt-2 flex flex-col text-start'>
+                  {monthPosts.map((p) => (
+                    <PostPreview post={p} class='border-0 bg-transparent py-2' />
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        ))
+      }
+    </section>
+  </main>
+</PageLayout>
