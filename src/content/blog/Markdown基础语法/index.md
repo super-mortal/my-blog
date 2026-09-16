@@ -1,7 +1,7 @@
 ---
-title: 'Markdown基础语法'
+title: 'Markdown 基础语法'
 publishDate: 2026-03-21
-description: 'Markdown十一个基础常用语法，让我们专注内容而不是纠结排版'
+description: 'Markdown 十一个基础常用语法，让我们专注内容而不是纠结排版'
 slug: 'markdown-ji-chu-yu-fa'
 tags:
   - Markdown
@@ -12,7 +12,7 @@ category: 教程
 
 # Markdown基础语法
 
-Markdown是一种轻量级标记语言，排版语法简洁，让人们更多地关注内容本身而非排版，Markdown 无处不在。StackOverflow、CSDN、掘金、简书、GitBook、有道云笔记、V2EX、光谷社区等。主流的代码托管平台，如 GitHub、GitLab、BitBucket、Coding、Gitee 等等，都支持 Markdown 语法，很多开源项目的 README、开发文档、帮助文档、Wiki 等都用 Markdown 写作。
+Markdown 是一种轻量级标记语言，排版语法简洁，让人们更多地关注内容本身而非排版，Markdown 无处不在。StackOverflow、CSDN、掘金、简书、GitBook、有道云笔记、V2EX、光谷社区等。主流的代码托管平台，如 GitHub、GitLab、BitBucket、Coding、Gitee 等等，都支持 Markdown 语法，很多开源项目的 README、开发文档、帮助文档、Wiki 等都用 Markdown 写作。
 
 ## 一.标题
 
@@ -95,8 +95,6 @@ Markdown是一种轻量级标记语言，排版语法简洁，让人们更多地
 - [x] 已完成
 - [ ] 未完成
 - [ ] 另一个未完成
-
----
 
 ## 六. 代码
 

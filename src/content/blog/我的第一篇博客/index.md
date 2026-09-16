@@ -15,10 +15,10 @@ category: 笔记
 
 # 这是我的个人博客历程
 
-**2026-09-06：** 博客[全面升级](https://github.com/super-mortal/my-blog/blob/main/README.md)：支持自定义 slug，增加 AI 支持等
+**2026-09-06：** 博客[全面升级](https://github.com/super-mortal/my-blog/blob/main/README.md)：支持自定义 slug ，增加 AI 支持等
 
-**2026-03-17：** 新博客成立，使用Astro框架astro-theme-pure模板构建
+**2026-03-17：** 新博客成立，使用 Astro 框架 astro-theme-pure 模板构建
 
-**2026-01-28：** 博客迁移重构，使用Astro框架Firefly模板重新构建
+**2026-01-28：** 博客迁移重构，使用 Astro 框架 Firefly 模板重新构建
 
-**2025-11-24：** 博客正式成立，使用typecho框架的wayxz主题构建
+**2025-11-24：** 博客正式成立，使用 typecho 框架的 wayxz 主题构建

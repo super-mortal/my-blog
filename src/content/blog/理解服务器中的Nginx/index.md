@@ -1,7 +1,7 @@
 ---
 title: '理解服务器中的Nginx'
 publishDate: 2026-03-23
-description: '一文读懂什么是Nginx和其在服务器中的作用'
+description: '一文读懂什么是 Nginx 和其在服务器中的作用'
 slug: 'li-jie-fu-wu-qi-zhong-de-nginx'
 tags:
   - 服务器
@@ -15,7 +15,7 @@ category: 知识点
 
 ## 一.什么是 Nginx？
 
-打个比喻，你去饭店吃饭，前台问你定的哪个包间，这个前台在服务器上就叫**Nginx**
+打个比喻，你去饭店吃饭，前台问你定的哪个包间，这个前台在服务器上就叫 **Nginx**
 
 | 餐厅前台         | 服务器 Nginx         |
 | ---------------- | -------------------- |
