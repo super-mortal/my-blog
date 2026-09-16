@@ -175,6 +175,12 @@ export const homepage = {
   skillsMax: 2
 }
 
+/** 关于页 AI Bot 卡片配置（开放博客，允许使用者自由调整） */
+export const aboutPage = {
+  /** AI Bot 卡片开关: 设为 false 整块隐藏（含目录项） */
+  aiBotCard: false
+}
+
 const config = { ...theme, integ } as Config
 export default config
 

@@ -2,9 +2,10 @@
 import {Timeline} from 'astro-pure/user'
 import AiBotCard from '@/components/about/AiBotCard.astro'
 import PageLayout from '@/layouts/CommonPage.astro'
+import {aboutPage} from '@/site-config'
 
 const headings = [
-  { depth: 2, slug: 'ai-bot', text: 'AI Bot' },
+  ...(aboutPage.aiBotCard ? [{ depth: 2, slug: 'ai-bot', text: 'AI Bot' }] : []),
   { depth: 2, slug: 'hobbies', text: '目标' },
   { depth: 2, slug: 'about-blog', text: '关于博客' }
 ]
