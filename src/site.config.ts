@@ -8,7 +8,7 @@ export const theme: ThemeUserConfig = {
   author: 'Mortal',
   /** Description metadata for your website. Can be used in page metadata. */
   description:
-    'super-mortal 技术博客：记录一个凡人程序员在 AI Agent、全栈开发与 DevOps 中的踩坑实录与开源实践，分享 DeepSeek Harness / OpenClaw 等项目与每周技术笔记，欢迎一起交流进步。',
+    'super-mortal 技术博客：记录一个凡人程序员在 AI Agent、全栈开发与 DevOps 中的踩坑实录与开源实践，欢迎一起交流进步。',
   /** The default favicon for your site which should be a path to an image in the `public/` directory. */
   favicon: '/favicon/favicon.ico',
   /** The default social card image for your site which should be a path to an image in the `public/` directory. */
