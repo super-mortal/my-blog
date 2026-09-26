@@ -87,7 +87,9 @@ export default defineConfig({
       { protocol: 'https', hostname: '**.rshah.org' },
       { protocol: 'https', hostname: 'q1.qlogo.cn' },
       { protocol: 'https', hostname: 'cravatar.cn' },
-      { protocol: 'https', hostname: 'avatars.githubusercontent.com' }
+      { protocol: 'https', hostname: 'avatars.githubusercontent.com' },
+      { protocol: 'https', hostname: 'weavatar.com' },
+      { protocol: 'https', hostname: 'x1anyu.cn' }
     ]
   },
 
